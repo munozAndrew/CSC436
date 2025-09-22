@@ -19,6 +19,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -80,6 +84,8 @@ fun GradScreen(modifier: Modifier = Modifier) {
             )
         }
 
+        RsvpButton(modifier)
+
     }
 
 
@@ -90,5 +96,21 @@ fun GradScreen(modifier: Modifier = Modifier) {
 fun GradPreview() {
     GraduationRSVPTheme {
         GradScreen()
+    }
+}
+
+@Preview
+@Composable
+fun RsvpButton(modifier: Modifier = Modifier) {
+    var isChecked by remember { mutableStateOf(true) }
+
+    val msg = if (isChecked) stringResource(R.string.button_true) else stringResource(R.string.button_false)
+
+
+    Column (
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+    ) {
+        Text( text = msg, fontSize = 30.sp)
     }
 }

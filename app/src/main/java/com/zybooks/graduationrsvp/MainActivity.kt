@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -67,14 +68,12 @@ fun GradScreen(modifier: Modifier = Modifier) {
             contentDescription = "Graduation cap",
             alpha = 0.3f
         )
-        Row {
+        Row (verticalAlignment = Alignment.CenterVertically) {
             Icon(
                 imageVector = Icons.Filled.Info,
                 contentDescription = "Info",
                 tint = Color.Black,
                 modifier = Modifier.padding(10.dp).size(40.dp)
-
-
             )
             Text(
                 text = stringResource(R.string.info), fontSize = 20.sp

@@ -17,6 +17,7 @@ import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -76,7 +77,7 @@ fun GradScreen(modifier: Modifier = Modifier) {
             Icon(
                 imageVector = Icons.Filled.Info,
                 contentDescription = "Info",
-                tint = Color.Black,
+                tint = Color.Gray,
                 modifier = Modifier.padding(10.dp).size(40.dp)
             )
             Text(
@@ -111,6 +112,12 @@ fun RsvpButton(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
     ) {
+        Switch(
+            checked = isChecked,
+            onCheckedChange = {
+                isChecked = it
+            }
+        )
         Text( text = msg, fontSize = 30.sp)
     }
 }

@@ -4,8 +4,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -13,11 +21,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zybooks.graduationrsvp.ui.theme.GraduationRSVPTheme
 
@@ -40,7 +50,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GradScreen(modifier: Modifier = Modifier) {
     Column (
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceEvenly
     ){
         Text(
             text = stringResource(R.string.graduation_announcement),
@@ -56,9 +67,20 @@ fun GradScreen(modifier: Modifier = Modifier) {
             contentDescription = "Graduation cap",
             alpha = 0.3f
         )
-        Text(
-            text = stringResource(R.string.info)
-        )
+        Row {
+            Icon(
+                imageVector = Icons.Filled.Info,
+                contentDescription = "Info",
+                tint = Color.Black,
+                modifier = Modifier.padding(10.dp).size(40.dp)
+
+
+            )
+            Text(
+                text = stringResource(R.string.info), fontSize = 20.sp
+            )
+        }
+
     }
 
 
